@@ -103,4 +103,8 @@ alias ShortCode.Repo
   def change_link(%Link{} = link, attrs \\ %{}) do
     Link.changeset(link, attrs)
   end
+
+  def list_links do
+    Repo.all(Link)
+  end
 end

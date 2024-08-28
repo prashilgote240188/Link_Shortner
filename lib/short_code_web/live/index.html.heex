@@ -1,0 +1,23 @@
+<div>
+  <h1>Links</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Destination URL</th>
+        <th>Short Code1</th>
+        <th>Vanity Name</th>
+        <th>Created At</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for link <- @links do %>
+        <tr>
+          <td><%= link.destination_url %></td>
+          <td><%= link.short_code %></td>
+          <td><%= link.vanity_name %></td>
+          <td><%= link.inserted_at %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

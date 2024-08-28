@@ -14,6 +14,12 @@ defmodule ShortCodeWeb.Router do
     plug :accepts, ["json"]
   end
 
+scope "/", ShortCodeWeb do
+    pipe_through :browser
+
+   
+    live "/links", LinkLive.Index, :index
+  end
   scope "/", ShortCodeWeb do
     pipe_through :browser
 
@@ -21,7 +27,9 @@ defmodule ShortCodeWeb.Router do
     post "/create", LinkController, :create
     get "/show", LinkController, :show
     get "/:short_code_or_vanity_name", LinkController, :redirect_to_original
+   # live "/links", LinkLive.Index, :index
   end
+  
 
   # Other scopes may use custom stacks.
   # scope "/api", ShortCodeWeb do
