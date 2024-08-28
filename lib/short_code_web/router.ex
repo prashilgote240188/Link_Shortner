@@ -17,7 +17,10 @@ defmodule ShortCodeWeb.Router do
   scope "/", ShortCodeWeb do
     pipe_through :browser
 
-    get "/", PageController, :index
+    get "/", LinkController, :new
+    post "/create", LinkController, :create
+    get "/show", LinkController, :show
+    get "/:short_code_or_vanity_name", LinkController, :redirect_to_original
   end
 
   # Other scopes may use custom stacks.
